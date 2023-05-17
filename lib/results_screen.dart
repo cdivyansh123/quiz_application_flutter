@@ -4,9 +4,11 @@ import 'package:flutter_projects/data/questions.dart';
 import 'package:flutter_projects/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen({super.key, required this.chooseanswer});
+  ResultScreen(
+      {super.key, required this.chooseanswer, required this.onRestart});
 
   final List<String> chooseanswer;
+  final void Function() onRestart;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -14,7 +16,7 @@ class ResultScreen extends StatelessWidget {
       summary.add({
         'question_index': i,
         'question': questions[i].text,
-        'corect_answer': questions[i].answers[0],
+        'correct_answer': questions[i].answers[0],
         'user_answer': chooseanswer[i]
       });
     }
@@ -23,11 +25,10 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final summaryData=getSummaryData();
-    final numOftoTalWuestions=questions.length;
-    final numOfCorrectQuestions=summaryData.where((data){
-      return data['user_answer']==data['correct_answer'];
+    final summaryData = getSummaryData();
+    final numOftoTalWuestions = questions.length;
+    final numOfCorrectQuestions = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
     }).length;
 
     return SizedBox(
@@ -37,7 +38,10 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-              Text('You answered $numOfCorrectQuestions out of $numOftoTalWuestions questions'),
+            Text(
+              'You answered $numOfCorrectQuestions out of $numOftoTalWuestions questions',
+              style: TextStyle(color: Colors.cyanAccent.shade400, fontSize: 20),
+            ),
             SizedBox(
               height: 30,
             ),
@@ -45,11 +49,14 @@ class ResultScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            TextButton(
-                onPressed: () {
-                  //todo
-                },
-                child: Text("Restart quiz"))
+            FilledButton(
+                onPressed: onRestart,
+                child: Text(
+                  "Restart quiz",
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ))
           ],
         ),
       ),
