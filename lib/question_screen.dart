@@ -5,7 +5,8 @@ import 'package:flutter_projects/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionScreen extends StatefulWidget {
-  QuestionScreen({super.key,required this.onSelectedAnswer});
+  QuestionScreen({super.key, required this.onSelectedAnswer});
+
   final void Function(String answer) onSelectedAnswer;
 
   @override
@@ -17,9 +18,7 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionState extends State<QuestionScreen> {
   var currentQuestionIndex = 0;
 
-
   void answerQuestion(String selectedAnswer) {
-
     widget.onSelectedAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++;
@@ -40,10 +39,9 @@ class _QuestionState extends State<QuestionScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.lato(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold
-              ),
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(
