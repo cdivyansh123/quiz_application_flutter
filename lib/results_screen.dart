@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/data/questions.dart';
 import 'package:flutter_projects/questions_summary.dart';
@@ -34,7 +33,7 @@ class ResultScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: EdgeInsets.all(40),
+        margin: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -42,16 +41,16 @@ class ResultScreen extends StatelessWidget {
               'You answered $numOfCorrectQuestions out of $numOftoTalWuestions questions',
               style: TextStyle(color: Colors.cyanAccent.shade400, fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             QuestionSummary(getSummaryData()),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             FilledButton(
                 onPressed: onRestart,
-                child: Text(
+                child: const Text(
                   "Restart quiz",
                   style: TextStyle(
                     fontSize: 22,

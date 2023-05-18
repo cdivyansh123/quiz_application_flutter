@@ -5,7 +5,7 @@ import 'package:flutter_projects/results_screen.dart';
 import 'package:flutter_projects/start_screen.dart';
 
 class Quiz extends StatefulWidget {
-  Quiz({super.key});
+  const Quiz({super.key});
 
   @override
   State<Quiz> createState() {
@@ -18,12 +18,6 @@ class _QuizState extends State<Quiz> {
 
   List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
-
-  // @override
-  // void initState() {
-  //   activeScreen = StartScreen(switchScreen);
-  //   super.initState();
-  // }
 
   void switchScreen() {
     setState(() {
@@ -68,7 +62,7 @@ class _QuizState extends State<Quiz> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,

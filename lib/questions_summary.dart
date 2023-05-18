@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuestionSummary extends StatelessWidget {
@@ -20,7 +19,7 @@ class QuestionSummary extends StatelessWidget {
                   ((data['question_index'] as int) + 1).toString(),
                   style: TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
@@ -31,7 +30,7 @@ class QuestionSummary extends StatelessWidget {
                         data['question'] as String,
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Text(
@@ -47,7 +46,7 @@ class QuestionSummary extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.lightBlue.shade500, fontSize: 17),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       )
                     ],
